@@ -1,0 +1,13 @@
+@import '_variables';
+@import '_mixins';
+@import '_placeholders';
+@import '_components';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+    font-family: 'Shrikhand', cursive;
+}
