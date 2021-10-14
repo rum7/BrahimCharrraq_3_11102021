@@ -1,8 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
-body {
-  font-family: "Roboto", sans-serif;
+.presentation, .localisation, header {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+header {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
 }
 
 h1 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
   font-family: "Shrikhand", cursive;
+}
+
+.btn__retourHome {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  justify-self: start;
+}
+
+main {
+  font-family: "Roboto", sans-serif;
+}
+
+.localisation {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
+  background: #eaeaea;
+  background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, #eaeaea 100%);
+}
+
+.localisation i {
+  padding: 0 0.5em 0 0;
+}
+
+.presentation {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 2em 0 4em;
+  background: #f6f6f6;
+  text-align: center;
+}
+
+.presentation h2 {
+  padding: 0 5em;
+}
+
+.presentation p {
+  padding: 1em 5em 2em;
+}
+
+.presentation .btn {
+  padding: 1em;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.presentation .btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
+}
+.presentation .btn--radius {
+  border-radius: 2em;
 }
