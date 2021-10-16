@@ -1,11 +1,18 @@
-// Couleurs principales
+//Couleurs principales
 $violet-primaire : #9356DC;
 $rose-secondaire : #FF79DA;
 $aqua-tertiaire : #99E2D0;
 
+//Couleur secondaires
+$vert-clair : #99e2d0;
+
 //Textes
 $txt-fond-clair: #000000;
 $txt-fond-sombre: #ffffff;
+$txt-fond-vert: #008766;
+
+//Soulignement titre
+$border-length-var: 10%;
 
 //Sections
 $header: "header";
@@ -19,6 +26,9 @@ $footer: "footer";
 $grid-columns-header: 1;
 $grid-columns-localisation: 1;
 $grid-columns-presentation: 1;
-$grid-columns-commentCaMarche: 3;
-$grid-columns-lesRestaurants: 3;
+$grid-columns-commentCaMarche: 1;
+$grid-columns-lesRestaurants: 1;
 $grid-columns-footer: 3;
+
+//Restaurants
+$nb-cartes-resto : 4;

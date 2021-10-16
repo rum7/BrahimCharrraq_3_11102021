@@ -21,3 +21,31 @@
     grid-row: $row-start unquote("/") $row-end;
     grid-column: $col-start unquote("/") $col-end;
 }
+
+
+/* TEST MIXIN */
+
+//Positionnement selon le nombre de colonne
+@mixin grid-cartes-resto {
+    $temp-count-row:1;
+    $temp-count-col:1;
+
+    @for $i from 1 to $nb-cartes-resto+1 {
+
+        .carte#{$i} {
+            grid-row: $temp-count-row unquote("/") ($temp-count-row);
+            grid-column: $temp-count-col unquote("/") ($temp-count-col+1);
+        }
+
+        @if ($i % $grid-columns-lesRestaurants == 0) {
+
+            $temp-count-row: $temp-count-row+1;
+            $temp-count-col: 1;
+
+        }@else{
+
+            $temp-count-col: $temp-count-col+1;
+
+        }
+    }
+}

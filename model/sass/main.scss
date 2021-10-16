@@ -39,9 +39,9 @@ main {
              rgba(173,173,173,.35) 0%,
              rgba(234,234,234,.75) 15%,
              rgba(234,234,234,1) 100%); 
-    }
-    .localisation i {
-        padding: 0 0.5em 0 0;
+        & i {
+            padding: 0 0.5em 0 0;
+        }
     }
     // Fin section localisation
 
@@ -49,30 +49,192 @@ main {
     .presentation {
         @extend %grid-center;
         @include grid-template-set ($presentation);
-        padding: 2em 0 4em;
+        padding: 2em 0 3em;
         background: #f6f6f6;
         text-align: center;
-    }
-    .presentation h2 {
-        padding: 0 5em;
-    }
-    .presentation p {
-        padding: 1em 5em 2em;
-    }
-    .presentation .btn {
-        padding: 1em;
-        color: $txt-fond-sombre;
-        box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-        &--gradient {
-            background-image: radial-gradient(
-                100% 50% at 20% 10%, 
-                $rose-secondaire 0%, 
-                $violet-primaire 200%);
+
+        & h2 {
+            padding: 0 5em;
         }
-        &--radius {
-            border-radius: 2em;
+        & p {
+            padding: 1em 5em 2em;
+        }
+        & .btn {
+            padding: 1em;
+            color: $txt-fond-sombre;
+            box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+            &--gradient {
+                background-image: radial-gradient(
+                    100% 50% at 20% 10%, 
+                    $rose-secondaire 0%, 
+                    $violet-primaire 200%);
+            }
+            &--radius {
+                border-radius: 2em;
+            }
         }
     }
-    // Fin section localisation
+    // Fin section presentation
+
+    //Debut section commentCaMarche
+    .commentCaMarche {
+        @extend %grid-center;
+        @include grid-template-set (1);
+        padding: 3em 1em;
+        text-align: center;
+
+        & h2 {
+            @include grid-pos-set (1, auto, 1, 2);
+            justify-self: start;
+        }
+        & ol {
+            @include grid-pos-set (2, auto, 1, 2);
+            display: grid;
+            @include grid-template-set ($commentCaMarche);
+            grid-gap: 2em;
+            margin: 1em 1em 0;
+            justify-self: normal;
+            counter-reset: section;
+        }
+        & li {
+            padding: 1.5em 1em;
+            text-align: left;
+            border-radius: 1.5em;
+            box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+        }
+        & li::before {
+            counter-increment: section;
+            content: counter(section);
+            position: relative;
+            left: -1.8em;
+            padding: 0.3em 0.6em;
+            border-radius: 70%;
+            background-color: $violet-primaire;
+            color: $txt-fond-sombre;
+        }
+        & p {
+            display: inline-block;
+            position: relative;
+            left: -0.7em;
+        }
+        & i {
+            padding: 0 1em 0 0;
+        }
+    }
+    .fa-mobile-alt:before {
+        padding: 0 0.7em 0 0;
+    }
+    .fa-list-ul:before {
+        padding: 0 0.3em 0 0;
+    }
+    // Fin section commentCaMarche
     
+    //Debut section lesRestaurants
+    .lesRestaurants {
+        @extend %grid-center;
+        @include grid-template-set (1);
+        padding: 3em 1em;
+        background: #f6f6f6;
+
+        & h2 {
+            @include grid-pos-set (1, auto, 1, 2);
+            justify-self: start;
+        }
+        & ul {
+            @include grid-pos-set (2, auto, 1, 2);
+            display: grid;
+            @include grid-template-set ($lesRestaurants);
+            grid-gap: 2em;
+            justify-self: normal;
+            margin: 1em 0;
+        }
+        & li {
+            display: inline-block;
+            width: 100%;
+        }
+        & a {
+            display: block;
+            position: relative;
+            padding: 0 0 0.7rem 0;
+            color: $txt-fond-clair;
+            border-radius: 1.5em;
+            box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+
+            & .sticker {
+                position: absolute;
+                right: 1em;
+                top: 1em;
+                padding: 0.3em 0.5em;
+                color: $txt-fond-vert;
+                background: $vert-clair;
+                border-radius: 0.2em;
+            }
+            & img {
+                padding: 0 0 0.5rem 0;
+                width: 100%;
+                height: 12.5em;
+                object-fit: cover;
+                border-radius: 1.5em 1.5em 0 0;
+            }
+            & h3, p {
+                padding: 0 1rem 0.5rem;
+            }
+            & button {
+                position: absolute;
+                bottom: 2.3rem;
+                right: 1rem;
+                font-size: 1.5em;
+            }
+        }
+    }
+    .carte1 img {
+        object-position: 0 -5em;
+    }
+    .carte2 img {
+        object-position: 0 -13.5em;
+    }
+    .carte3 img {
+        object-position: 0 -5em;
+    }
+    .carte4 img {
+        object-position: 0 -6em;
+    }
+    
+    // Fin section lesRestaurants
+
 // Fin Main
+
+// Début Footer
+footer {
+    @extend %grid-center;
+    @include grid-template-set ($footer);
+    padding: 1em;
+    color: $txt-fond-sombre;
+    background: #353535;
+}
+footer h2 {
+    @include grid-pos-set (1, auto, 1, auto);
+    margin: 0 0 1.5rem 0;
+    font-family: 'Shrikhand', cursive;
+    font-size: 1.4em;
+    font-weight: normal;
+    justify-self: start;
+}
+footer ul {
+    @include grid-pos-set (2, auto, 1, 4);
+    justify-self: start;
+    & li {
+        margin: 0 0 0.5rem 0;
+    }
+}
+footer a {
+    color: $txt-fond-sombre;
+    & .fa-utensils {
+        padding: 0 1rem 0 0;
+    }
+    & .fa-hands-helping {
+        padding: 0 0.55rem 0 0;
+    }
+}
+
+// Fin Footer

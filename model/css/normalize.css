@@ -11,7 +11,7 @@ h1 {
   font-size: 2em;
 }
 
-ul {
+ul, ol {
   list-style: none;
 }
 
