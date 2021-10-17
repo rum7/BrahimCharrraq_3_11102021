@@ -20,11 +20,14 @@ footer, .menuDuResto, .lesRestaurants, .commentCaMarche, .presentation, .localis
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
---gradient {
+.btn {
+  padding: 1em 1.5em;
+  color: #ffffff;
+}
+.btn--gradient {
   background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
 }
-
---radius {
+.btn--radius {
   border-radius: 2em;
 }
 
