@@ -1,0 +1,18 @@
+.list-item {
+	padding: 1.5em 1em;
+	text-align: left;
+	border-radius: 1.5em;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+--gradient {
+	background-image: 
+        radial-gradient(
+            100% 50% at 20% 10%,
+             #FF79DA 0%,
+             #9356DC 200%);
+}
+
+--radius {
+	border-radius: 2em;
+}

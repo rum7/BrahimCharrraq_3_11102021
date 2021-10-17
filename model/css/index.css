@@ -1,9 +1,31 @@
 /* TEST MIXIN */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
-footer, .lesRestaurants, .commentCaMarche, .presentation, .localisation, header {
+footer, .menuDuResto, .lesRestaurants, .commentCaMarche, .presentation, .localisation, header {
   display: grid;
   align-items: center;
   justify-items: center;
+}
+
+.menuDuResto h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 10%;
+}
+
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1.5em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
+}
+
+--radius {
+  border-radius: 2em;
 }
 
 header {
@@ -49,22 +71,10 @@ main {
 .presentation p {
   padding: 1em 5em 2em;
 }
-.presentation .btn {
-  padding: 1em;
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-.presentation .btn--gradient {
-  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
-}
-.presentation .btn--radius {
-  border-radius: 2em;
-}
 
 .commentCaMarche {
   grid-template-columns: repeat(1, 1fr);
   padding: 3em 1em;
-  text-align: center;
 }
 .commentCaMarche h2 {
   grid-row: 1 / auto;
@@ -80,12 +90,6 @@ main {
   margin: 1em 1em 0;
   justify-self: normal;
   counter-reset: section;
-}
-.commentCaMarche li {
-  padding: 1.5em 1em;
-  text-align: left;
-  border-radius: 1.5em;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 .commentCaMarche li::before {
   counter-increment: section;
@@ -171,20 +175,67 @@ main {
   font-size: 1.5em;
 }
 
-.carte1 img {
-  object-position: 0 -5em;
+.menuDuResto {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  justify-items: normal;
+  background: #f6f6f6;
 }
-
-.carte2 img {
-  object-position: 0 -13.5em;
+.menuDuResto__cover {
+  margin: 0 0 -5em 0;
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
 }
-
-.carte3 img {
-  object-position: 0 -5em;
+.menuDuResto__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
 }
-
-.carte4 img {
-  object-position: 0 -6em;
+.menuDuResto h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
+}
+.menuDuResto h2 button {
+  margin: 0 0 0 2rem;
+  font-size: 0.8em;
+}
+.menuDuResto h3 {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  text-transform: uppercase;
+}
+.menuDuResto ul {
+  grid-row: 3 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
+  justify-self: normal;
+  counter-reset: section;
+}
+.menuDuResto ul .list-item {
+  position: relative;
+  padding: 1em;
+  cursor: pointer;
+}
+.menuDuResto ul h4 {
+  margin: 0 0 0.3rem 0;
+}
+.menuDuResto ul strong {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+}
+.menuDuResto a {
+  padding: 1em 2.5em;
+  justify-self: center;
 }
 
 footer {
