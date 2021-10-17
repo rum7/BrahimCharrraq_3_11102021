@@ -59,20 +59,6 @@ main {
         & p {
             padding: 1em 5em 2em;
         }
-        & .btn {
-            padding: 1em;
-            color: $txt-fond-sombre;
-            box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-            &--gradient {
-                background-image: radial-gradient(
-                    100% 50% at 20% 10%, 
-                    $rose-secondaire 0%, 
-                    $violet-primaire 200%);
-            }
-            &--radius {
-                border-radius: 2em;
-            }
-        }
     }
     // Fin section presentation
 
@@ -81,7 +67,6 @@ main {
         @extend %grid-center;
         @include grid-template-set (1);
         padding: 3em 1em;
-        text-align: center;
 
         & h2 {
             @include grid-pos-set (1, auto, 1, 2);
@@ -95,12 +80,6 @@ main {
             margin: 1em 1em 0;
             justify-self: normal;
             counter-reset: section;
-        }
-        & li {
-            padding: 1.5em 1em;
-            text-align: left;
-            border-radius: 1.5em;
-            box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
         }
         & li::before {
             counter-increment: section;
@@ -187,21 +166,86 @@ main {
             }
         }
     }
-    .carte1 img {
-        object-position: 0 -5em;
-    }
-    .carte2 img {
-        object-position: 0 -13.5em;
-    }
-    .carte3 img {
-        object-position: 0 -5em;
-    }
-    .carte4 img {
-        object-position: 0 -6em;
-    }
-    
+    // .carte1 img {
+    //     object-position: 0 -5em;
+    // }
+    // .carte2 img {
+    //     object-position: 0 -13.5em;
+    // }
+    // .carte3 img {
+    //     object-position: 0 -5em;
+    // }
+    // .carte4 img {
+    //     object-position: 0 -6em;
+    // }
+    // @include grid-cartes-resto();
     // Fin section lesRestaurants
 
+
+    .menuDuResto {
+        @extend %grid-center;
+        @include grid-template-set (1);
+        padding: 0 0 3em;
+        justify-items: normal;
+        background: #f6f6f6;
+
+        &__cover {
+            margin: 0 0 -5em 0;
+            width: 100%;
+            height: 20em;
+            object-fit: cover;
+        }
+        &__carte {
+            padding: 2em 1em 0;
+            background: #f6f6f6;
+            border-radius: 3em 3em 0 0;
+        }
+        & h2 {
+            @include grid-pos-set (1, auto, 1, 4);
+            justify-self: start;
+            margin: 0 0 1em;
+            font-family: 'Shrikhand', cursive;
+            font-size: 2em;
+
+            & button {
+                margin: 0 0 0 2rem;
+                font-size: 0.8em;
+            }
+        }
+        & h3 {
+            @include grid-pos-set (2, auto, 1, 4);
+            justify-self: start;
+            @extend %border-length-var;
+            text-transform: uppercase;
+        }
+        & ul {
+            @include grid-pos-set (3, auto, 1, 4);
+            display: grid;
+            @include grid-template-set (1);
+            grid-gap: 1.5em;
+            margin: 1em 0 2.5em;
+            justify-self: normal;
+            counter-reset: section;
+            & .list-item {
+                position: relative;
+                padding: 1em;
+                cursor: pointer;
+            }
+            & h4 {
+                margin: 0 0 0.3rem 0;
+            }
+            & strong {
+                position: absolute;
+                right: 2rem;
+                bottom: 1rem;
+            }
+        }
+
+        & a {
+            padding: 1em 2.5em;
+            justify-self: center;
+        }
+    }
 // Fin Main
 
 // Début Footer
