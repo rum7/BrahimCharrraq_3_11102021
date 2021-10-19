@@ -8,6 +8,27 @@
         <link rel="stylesheet" href="model/plugins/fontawesome-free-5.15.4-web/css/all.css">
     </head>
     <body>
+        <!-- Début du loader -->
+        <div class="loader">        
+            <svg viewBox="0 0 600 300">
+                <!-- Symbol-->
+                <symbol id="s-text">
+                    <text text-anchor="middle" x="50%" y="50%">ohmyfood</text>
+                </symbol>
+                <!-- Duplicate symbols-->
+                <g>
+                    <use class="text text--nofill" xlink:href="#s-text"></use>
+                    <use class="text text--nofill" xlink:href="#s-text"></use>
+                    <use class="text text--nofill" xlink:href="#s-text"></use>
+                    <use class="text text--nofill" xlink:href="#s-text"></use>
+                    <use class="text text--nofill" xlink:href="#s-text"></use>
+                </g>
+
+                <use class="text text--fill" xlink:href="#s-text"></use>
+            </svg>
+        </div>
+        <!-- Fin du loader -->
+
         <!-- Début du header -->
         <header>
             <h1>Ohmyfood</h1>
@@ -110,7 +131,7 @@
                 <li><a href="#"><i class="fas fa-utensils"></i>Proposer un restaurant</a></li>
                 <li><a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a></li>
                 <li><a href="#">Mentions légales</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="mailto:contact@ohmyfood.com">Contact</a></li>
             </ul>
         </footer>
         <!-- Fin du footer -->

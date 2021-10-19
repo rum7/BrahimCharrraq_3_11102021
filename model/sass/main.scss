@@ -100,7 +100,6 @@ main {
             padding: 0 1em 0 0;
         }
     }
-
     // Fin section commentCaMarche
     
     //Debut section lesRestaurants
@@ -174,9 +173,10 @@ main {
     //     object-position: 0 -6em;
     // }
     // @include grid-cartes-resto();
-    // Fin section lesRestaurants
+    
+    //Fin section lesRestaurants
 
-
+    //Début section menuDuResto
     .menuDuResto {
         @extend %grid-center;
         @include grid-template-set (1);
@@ -311,6 +311,8 @@ main {
             justify-self: center;
         }
     }
+    //Fin section menuDuResto
+
 // Fin Main
 
 // Début Footer
@@ -388,3 +390,4 @@ footer a {
         @include grid-template-set (1);
     }
 }
+
