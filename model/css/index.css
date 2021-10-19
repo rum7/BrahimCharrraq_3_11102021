@@ -65,6 +65,97 @@ button:hover .heart-hover {
   transform: scale(1);
 }
 
+/* Animation Loader */
+.loader {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: 1s fadeOut 5500ms ease forwards;
+}
+.loader svg {
+  animation: 2s fadeIn ease forwards, 1s fadeOut 5000ms ease forwards;
+  width: 80vh;
+}
+.loader svg g {
+  animation: 2s fadeOut 3000ms ease forwards;
+}
+
+.text {
+  font: 5em "Shrikhand", cursive;
+}
+.text--nofill {
+  fill: none;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 305;
+  stroke-dashoffset: 0;
+  animation: stroke 10s infinite linear;
+}
+.text--nofill:nth-child(5n+1) {
+  stroke: #353535;
+  animation-delay: -2s;
+}
+.text--nofill:nth-child(5n+2) {
+  stroke: #9356DC;
+  animation-delay: -4s;
+}
+.text--nofill:nth-child(5n+3) {
+  stroke: #FF79DA;
+  animation-delay: -6s;
+}
+.text--nofill:nth-child(5n+4) {
+  stroke: #99E2D0;
+  animation-delay: -8s;
+}
+.text--nofill:nth-child(5n+5) {
+  stroke: #e2e2e2;
+  animation-delay: -10s;
+}
+.text--fill {
+  fill: #353535;
+  stroke-width: 1;
+  stroke: #353535;
+  animation: 2s fadeIn 3000ms ease both;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -375;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 header {
   grid-template-columns: repeat(1, 1fr);
   padding: 1em;

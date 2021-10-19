@@ -58,3 +58,93 @@ button:hover {
         transform: scale(1);
     }
 }
+
+
+/* Animation Loader */
+
+.loader {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    animation: 1s fadeOut 5500ms ease forwards;
+    & svg {
+        animation: 2s fadeIn ease forwards,
+        1s fadeOut 5000ms ease forwards
+        ;
+        width: 80vh;
+        //position: absolute;
+        //height: 100%;
+        & g {
+            animation: 2s fadeOut 3000ms ease forwards;
+        }
+    }
+}
+
+.text {
+    font: 5em 'Shrikhand', cursive;
+
+    &--nofill {
+        fill: none;
+        stroke-width: 1;
+        stroke-linejoin: round;
+        stroke-dasharray: $dash $dash-space;
+        stroke-dashoffset: 0;
+        animation: stroke $time infinite linear;
+
+        @for $item from 1 through $max {
+            &:nth-child(#{$max}n + #{$item}) {
+                $color: nth($colors, $item);
+                stroke: $color;
+                animation-delay: -($time-step * $item);
+            }
+        }
+    }
+    &--fill {
+        fill: #353535;
+        stroke-width: 1;
+        stroke: #353535;
+        animation: 2s fadeIn 3000ms ease both;
+    }
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: -($dash + $dash-gap) * $max;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
