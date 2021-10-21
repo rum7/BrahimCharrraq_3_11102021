@@ -1,10 +1,161 @@
+/* TEST MIXIN */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
-.presentation, .localisation, header {
+footer, .menuDuResto, .lesRestaurants, .commentCaMarche, .presentation, .localisation, header {
   display: grid;
   align-items: center;
   justify-items: center;
 }
 
+.menuDuResto h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 3rem;
+}
+
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+  padding: 1em 1.5em;
+  color: #ffffff;
+  transition: 250ms;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
+}
+.btn--radius {
+  border-radius: 2em;
+}
+.btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button .heart-away {
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+button .heart-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 0.5s;
+  background-color: black;
+  background-image: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+button:hover .heart-away {
+  opacity: 0;
+  transform: scale(0);
+}
+button:hover .heart-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animation Loader */
+.loader {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: 1s fadeOut 5500ms ease forwards;
+}
+.loader svg {
+  animation: 2s fadeIn ease forwards, 1s fadeOut 5000ms ease forwards;
+  width: 80vh;
+}
+.loader svg g {
+  animation: 2s fadeOut 3000ms ease forwards;
+}
+
+.text {
+  font: 5em "Shrikhand", cursive;
+}
+.text--nofill {
+  fill: none;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 305;
+  stroke-dashoffset: 0;
+  animation: stroke 10s infinite linear;
+}
+.text--nofill:nth-child(5n+1) {
+  stroke: #353535;
+  animation-delay: -2s;
+}
+.text--nofill:nth-child(5n+2) {
+  stroke: #9356DC;
+  animation-delay: -4s;
+}
+.text--nofill:nth-child(5n+3) {
+  stroke: #FF79DA;
+  animation-delay: -6s;
+}
+.text--nofill:nth-child(5n+4) {
+  stroke: #99E2D0;
+  animation-delay: -8s;
+}
+.text--nofill:nth-child(5n+5) {
+  stroke: #e2e2e2;
+  animation-delay: -10s;
+}
+.text--fill {
+  fill: #353535;
+  stroke-width: 1;
+  stroke: #353535;
+  animation: 2s fadeIn 3000ms ease both;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -375;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 header {
   grid-template-columns: repeat(1, 1fr);
   padding: 1em;
@@ -32,34 +183,347 @@ main {
   background: #eaeaea;
   background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, #eaeaea 100%);
 }
-
 .localisation i {
   padding: 0 0.5em 0 0;
 }
 
 .presentation {
   grid-template-columns: repeat(1, 1fr);
-  padding: 2em 0 4em;
+  padding: 2em 0 3em;
   background: #f6f6f6;
   text-align: center;
 }
-
 .presentation h2 {
   padding: 0 5em;
 }
-
 .presentation p {
   padding: 1em 5em 2em;
 }
 
-.presentation .btn {
+.commentCaMarche {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
+}
+.commentCaMarche h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+.commentCaMarche ol {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  margin: 1em 1em 0;
+  justify-self: normal;
+  counter-reset: section;
+}
+.commentCaMarche li::before {
+  counter-increment: section;
+  content: counter(section);
+  position: relative;
+  left: -1.9em;
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  background-color: #9356DC;
+  color: #ffffff;
+}
+.commentCaMarche p {
+  display: inline-block;
+  position: relative;
+  left: -0.7em;
+}
+.commentCaMarche i {
+  padding: 0 1em 0 0;
+}
+
+.lesRestaurants {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
+  background: #f6f6f6;
+}
+.lesRestaurants h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+.lesRestaurants ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+  justify-self: normal;
+  margin: 1em 0;
+}
+.lesRestaurants li {
+  display: inline-block;
+  width: 100%;
+}
+.lesRestaurants a {
+  display: block;
+  position: relative;
+  padding: 0 0 0.7rem 0;
+  color: #000000;
+  border-radius: 1.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+.lesRestaurants a .sticker {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  padding: 0.4em 0.6em;
+  color: #008766;
+  background: #99e2d0;
+  border-radius: 0.2em;
+}
+.lesRestaurants a img {
+  padding: 0 0 0.5rem 0;
+  width: 100%;
+  height: 12.5em;
+  object-fit: cover;
+  border-radius: 1.5em 1.5em 0 0;
+}
+.lesRestaurants a h3, .lesRestaurants a p {
+  padding: 0 1rem 0.5rem;
+}
+.lesRestaurants a button {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 1.5rem;
+  font-size: 1.5em;
+}
+
+.menuDuResto {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  justify-items: normal;
+  background: #f6f6f6;
+}
+.menuDuResto__cover {
+  margin: 0 0 -5em 0;
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+}
+.menuDuResto__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
+}
+.menuDuResto h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
+}
+.menuDuResto h2 button {
+  margin: 0 0 0 2rem;
+  font-size: 1em;
+  position: relative;
+}
+.menuDuResto h3 {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.menuDuResto ul {
+  grid-row: 3 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
+  justify-self: normal;
+  counter-reset: section;
+}
+.menuDuResto .list-item {
+  position: relative;
+  padding: 1em;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 1.05em;
+}
+.menuDuResto h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1em;
+}
+.menuDuResto p {
+  font-size: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 85%;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.menuDuResto strong {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  transition: all 0.5s;
+  font-weight: 600;
+}
+.menuDuResto span {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: #99E2D0;
+  transition: all 0.5s;
+}
+.menuDuResto .fa-check-circle {
+  transform: rotate(-240deg);
+  transition: all 0.5s;
+}
+.menuDuResto .list-item {
+  animation: showingDishes 1000ms forwards;
+  opacity: 0;
+}
+.menuDuResto .list-item--1 {
+  animation-delay: 111.1111111111ms;
+}
+.menuDuResto .list-item--2 {
+  animation-delay: 222.2222222222ms;
+}
+.menuDuResto .list-item--3 {
+  animation-delay: 333.3333333333ms;
+}
+.menuDuResto .list-item--4 {
+  animation-delay: 444.4444444444ms;
+}
+.menuDuResto .list-item--5 {
+  animation-delay: 555.5555555556ms;
+}
+.menuDuResto .list-item--6 {
+  animation-delay: 666.6666666667ms;
+}
+.menuDuResto .list-item--7 {
+  animation-delay: 777.7777777778ms;
+}
+.menuDuResto .list-item--8 {
+  animation-delay: 888.8888888889ms;
+}
+.menuDuResto .list-item--9 {
+  animation-delay: 1000ms;
+}
+@keyframes showingDishes {
+  0% {
+    transform: translateY(2em);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menuDuResto .list-item:hover p {
+  width: 67%;
+}
+.menuDuResto .list-item:hover strong {
+  right: 6.5rem;
+}
+.menuDuResto .list-item:hover span {
+  right: 0;
+}
+.menuDuResto .list-item:hover span i {
+  transform: rotate(0deg);
+}
+.menuDuResto a {
+  padding: 1em 2.5em;
+  justify-self: center;
+}
+
+footer {
+  grid-template-columns: repeat(3, 1fr);
   padding: 1em;
   color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background: #353535;
+  font-family: "Roboto", sans-serif;
 }
-.presentation .btn--gradient {
-  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
+
+footer h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  margin: 0 0 1.5rem 0;
+  font-family: "Shrikhand", cursive;
+  font-size: 1.4em;
+  font-weight: normal;
+  justify-self: start;
 }
-.presentation .btn--radius {
-  border-radius: 2em;
+
+footer ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+}
+footer ul li {
+  margin: 0 0 0.5rem 0;
+}
+
+footer a {
+  color: #ffffff;
+}
+footer a .fa-utensils {
+  padding: 0 1rem 0 0;
+}
+footer a .fa-hands-helping {
+  padding: 0 0.55rem 0 0;
+}
+
+@media (max-width: 1270px) {
+  .lesRestaurants ul {
+    grid-row: 2 / auto;
+    grid-column: 1 / 3;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menuDuResto ul {
+    grid-row: 3 / auto;
+    grid-column: 1 / 3;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 960px) {
+  .commentCaMarche ol {
+    grid-row: 2 / auto;
+    grid-column: 1 / 2;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .menuDuResto ul {
+    grid-row: 3 / auto;
+    grid-column: 1 / 3;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .commentCaMarche ol {
+    grid-row: 2 / auto;
+    grid-column: 1 / 2;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .fa-mobile-alt:before {
+    padding: 0 0.7em 0 0;
+  }
+
+  .fa-list-ul:before {
+    padding: 0 0.3em 0 0;
+  }
+
+  .lesRestaurants ul {
+    grid-row: 2 / auto;
+    grid-column: 1 / 2;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
