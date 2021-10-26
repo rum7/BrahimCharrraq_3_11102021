@@ -504,7 +504,7 @@ footer a .fa-hands-helping {
 
 /* Fin Footer */
 /* media queries */
-@media screen and (max-width: 1270px) {
+@media (max-width: 1270px) {
   .lesRestaurants ul {
     grid-row: 2 / auto;
     grid-column: 1 / 3;
@@ -517,7 +517,7 @@ footer a .fa-hands-helping {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (max-width: 960px) {
+@media (max-width: 960px) {
   .commentCaMarche ol {
     grid-row: 2 / auto;
     grid-column: 1 / 2;
@@ -530,7 +530,7 @@ footer a .fa-hands-helping {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media screen and (max-width: 680px) {
+@media (max-width: 680px) {
   .commentCaMarche ol {
     grid-row: 2 / auto;
     grid-column: 1 / 2;
@@ -549,5 +549,26 @@ footer a .fa-hands-helping {
     grid-row: 2 / auto;
     grid-column: 1 / 2;
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .presentation h2 {
+    padding: 0 2em;
+  }
+
+  .presentation p {
+    padding: 1em 2em 2em;
+  }
+
+  .menuDuResto h2 {
+    font-size: 1.7em;
+  }
+
+  .menuDuResto .list-item {
+    font-size: 0.8em;
+  }
+
+  .menuDuResto .list-item:hover p {
+    width: 60%;
   }
 }
