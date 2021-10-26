@@ -27,7 +27,7 @@
     }
 }
 
-button {
+.btn__like, button {
     & .heart-away{
         display: block;
         transform: scale(1);
@@ -47,7 +47,7 @@ button {
         -moz-text-fill-color: transparent;
     }
 }
-button:hover {
+.btn__like:hover, button:hover {
     & .heart-away {
         opacity: 0;
         transform: scale(0);
